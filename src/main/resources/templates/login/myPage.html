@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy求人</title>
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/css.js"></script>
+<link rel="stylesheet" href="../css/banner.css" type="text/css">
+<link rel="stylesheet" href="../css/top.css" type="text/css">
+<link rel="stylesheet" href="../css/mypage.css" type="text/css">
+</head>
+
+<body>
+
+		<!--ヘッド部分-->
+		<div class="w100per bgwri  pos_f left0 top0"
+			style="height: 70px; z-index: 20000">
+			<a href="/main">
+				<div class="pos_a " style="width: 370px; left: 100px; top: 0px">
+					<img src="../img/city.jpg" class="fl margint13">
+					<div class="fl fnt18 fncolorlan marginl20 "
+						style="width: 230px; height: 70px; line-height: 70px;" id="zgno1">Easy求人サイト</div>
+				</div>
+			</a>
+
+			<div class=" center  fnt18 "
+				style="width: 600px; height: 70px; line-height: 70px">
+				<a href="/main">
+					<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">正社員
+					</div>
+				</a> <a href="">
+					<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
+				</a>
+
+			</div>
+
+			<div class="pos_a "
+				style="width: 470px; right: 100px; top: 0px; height: 70px; line-height: 70px">
+
+				<div class="fr fnt18 pos_r " style="width: 130px;"
+					onmouseover="$(&#39;#userMenu&#39;).show()"
+					onmouseout="$(&#39;#userMenu&#39;).hide()">
+
+					<div class="fl  fncolorhui overf   marginl5" style="width: 80px;">林杰</div>
+					<img src="../img/yajirushi_2.png" class="fl marginl5"
+						style="height: 6px; width: 12px; margin-top: 33px">
+					<div id="userMenu" class="pos_a  left0  bgwri fnt16 touyinghuitop "
+						style="width: 110px; top: 60px; display: none;">
+						<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home">
+							<div class="fl ta_c w100per hang40" onmouseover="lineMove(1, 1)"
+								onmouseout="lineMove(2, 1)" id="line1">履歴管理</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=liulanzuji">
+							<div class="fl ta_c w100per hang40" onmouseover="lineMove(1, 2)"
+								onmouseout="lineMove(2, 2)" id="line2">チェック履歴</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=myshoucang">
+							<div class="fl ta_c w100per hang40" onmouseover="lineMove(1, 3)"
+								onmouseout="lineMove(2,3)" id="line3">保存した会社</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=mytoudi">
+							<div class="fl ta_c w100per hang40" onmouseover="lineMove(1, 4)"
+								onmouseout="lineMove(2, 4)" id="line4">出した会社</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=zhanghaoshezhi">
+							<div class="fl ta_c w100per hang40" onmouseover="lineMove(1, 5)"
+								onmouseout="lineMove(2, 5)" id="line5">個人設定</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=yinsishezhi">
+							<div class="fl w100per ta_c hang40" onmouseover="lineMove(1, 6)"
+								onmouseout="lineMove(2,6)" id="line6">プライバシー</div>
+						</a> <a href="http://www.ijob.jp/?ctl=User&amp;act=wanshanxinxi">
+							<div class="fl w100per ta_c hang40" onmouseover="lineMove(1, 7)"
+								onmouseout="lineMove(2, 7)" id="line7">個人情報補完</div>
+						</a> <a href="http://www.ijob.jp/?ctl=UserLogin&amp;act=out">
+							<div class="fl ta_c w100per hang40 fncolorhongse"
+								onmouseover="lineMove(1,8)" onmouseout="lineMove(2, 8)"
+								id="line8">サインアウト</div>
+						</a>
+					</div>
+				</div>
+				<div
+					style="background-image: url(https://thirdwx.qlogo.cn/mmopen/vi_32/ZLodicTf7P4YK4FfQWaH7rjfOrica2TKdN9HKvE2MHuWw1aSYxyHrNKibLiajch2ufvFCv5628ficPAIqnBdndRSakA/132); height: 30px; width: 30px; border-radius: 15px"
+					class="fr bgcover marginl30 margint20 "></div>
+
+				<a href="http://www.ijob.jp/?ctl=User&amp;act=who_see&amp;type=0">
+					<div class="fr fnt12 marginl50 pos_r fncolorhui "
+						style="width: 145px;">メッセージ</div>
+				</a>
+
+			</div>
+			<div class="fl w100per " id="UserLogin"></div>
+		</div>
+
+		<div class="w100per fl" style="height: 70px"></div>
+
+		<script>
+
+			$(window).resize(function () {
+				if ($(window).width() < 1400) {
+					$('#zgno1').hide();
+				}
+				else {
+					$("#zgno1").show();
+				}
+
+			});
+			if ($(window).width() > 1400) {
+				$('#zgno1').show();
+			}
+		</script>
+
+
+
+
+		<script>
+
+			function imgs() {
+				$("#img_show").html('<img src="https://ijob4.51ijob.com/attr/" style="max-width:100%;max-height:100%;"  />');
+			}
+			imgs();
+			var imgSrc = '';
+			//照相机按钮上传图片
+			function sendimg(thi) {
+				var file = thi.files[0];
+				if (file != null) {
+					$("#Upload_form").submit();
+				}
+
+			}
+
+			function upImgShow(file) {
+				$('#img').val(file);
+				imgSrc = file;
+				$("#img_show").css({ 'background': 'url(https://ijob4.51ijob.com/attr/' + file + ')', 'background-size': 'cover', 'background-position': 'center' });
+			}
+
+			function showErr(err) {
+				$('.must_in').css({ 'background': '#FFFFFF' });
+				for (var i = 0; i < err.length; i++) {
+					$('#' + err[i]).css({ 'background': '#f7e3e3' });
+				}
+			}
+
+
+			rImgFlag = true;
+			function rImg() {
+				if (rImgFlag) {
+					if (imgSrc == '') {
+						alert('请先上传照片');
+					}
+					else {
+						rImgFlag = false;
+						$("#img_show").html('<img src="tpl/images/camer3.png" style="width:98%;height:98%;margin-top:5%;"  />');
+						$.get('index.php?ctl=Jianli&act=rotateImg', { 'file': imgSrc }, function (file) {
+							$("#img_show").css({ 'background': 'url(' + file + ')', 'background-size': 'cover', 'background-position': 'center' });
+							rImgFlag = true;
+						});
+					}
+				}
+			}
+
+		</script>
+
+
+		<div class="fl  w100per bghui "
+			style="padding-top: 30px; padding-top: 30px; padding-bottom: 100px">
+			<div class="center ">
+				<div class="fl" style="width: 928px;">
+					<div class="fl paddingtb50  bbox  borderR bgwri"
+						style="width: 928px;">
+						<div class="fl w100per  marginl50 paddingb60 bdhuisebottom2 "
+							style="width: 828px;">
+
+							<form method="post" enctype="multipart/form-data"
+								target="Upload_iframe"
+								action="http://www.ijob.jp/?ctl=Jianli&amp;act=xiugaiImg"
+								id="Upload_form">
+								<div
+									style="background-image: url(tpl/images/jianlinantx1.png); height: 107px; width: 107px; border-radius: 53px"
+									class="fl bgcover pos_r toolscamera" id="img_show">
+									<input accept="image/jpg, image/jpeg, image/png"
+										class="picfile pos_a touming" onchange="sendimg(this);"
+										id="Upload_file" name="Upload_file" type="file"
+										style="top: 30px; height: 100px"> <img
+										src="../img/gentleman.png" class="fr "
+										style="width: 27px; height: 27px; margin-top: 80px"> <input
+										type="hidden" name="jianli_id" value="36252">
+								</div>
+							</form>
+
+							<div class="fr hang30 " style="width: 690px">
+								<div class="fl hang30 fnt26  overf" style="width: 640px">
+									林杰<span class=" fnt14 fncolorshenhui marginl10">/ リン ケツ</span>
+								</div>
+								<a href="javascript:showEditgerenqingbao(36252)">
+									<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+										style="width: 30px">直す</div> <img
+									src="./ijob_mypage_files/xiugai.png" class="fr margint10"
+									style="width: 13px; height: 13px">
+								</a>
+							</div>
+
+							<div class="fr hang20  fncolorshenhui fnt14 margint15"
+								style="width: 690px">电话：08037365688</div>
+							<div class="fr hang20  fncolorshenhui fnt14" style="width: 690px">邮箱：linjiv@qq.com</div>
+							<div class="fl w100per " id="Editgerenqingbao"></div>
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m1"></a>
+						</div>
+						<div class="fl w100per hang30 marginl50 " style="width: 828px;">
+							<img src="./ijob_mypage_files/jibenxinxi.png"
+								class="fl margint10" style="width: 15px; height: 11px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">基本情報</div>
+							<a href="javascript:showEditgerenqingbao(36252)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">直す</div> <img
+								src="./ijob_mypage_files/xiugai.png" class="fr margint10"
+								style="width: 13px; height: 13px">
+							</a>
+
+						</div>
+						<div class="fl w100per" id="Editgerenqingbao"></div>
+
+						<div
+							class="fl w100per paddingtb5  fnt14 fncolorshenhui margint10 marginl50 bbox"
+							style="width: 828px; padding-left: 25px">
+							<div class="fl  hang20 marginb10" style="width: 265px;">生日：1992/03/11</div>
+							<div class="fl marginb10 hang20" style="width: 265px;">求职状态：求職中</div>
+							<div class="fl  hang20 marginb10" style="width: 265px;">来日年数：8年</div>
+							<div class="fl  hang20 marginb10" style="width: 265px;">本籍地：福建省</div>
+							<div class="fl  hang20 marginb10" style="width: 265px;">日语水平：口语流利</div>
+							<div class="fl marginb10 hang20" style="width: 265px;">最终学历：大学</div>
+							<div class="fl marginb10 hang20" style="width: 265px;">日语能力测验：N1</div>
+							<div class="fl marginb10 hang20" style="width: 265px;">搬家意愿：有</div>
+							<div class="fl marginb10 hang20" style="width: 265px;">配偶者：无</div>
+
+							<div class="fl marginb10 hang20" style="width: 265px;">最寄駅：
+								中央・総武線津田沼</div>
+							<div class="fl  hang20 marginb10" style="width: 265px;">日本在留资格：留学</div>
+							<div class="fl marginb10  hang20 overf" style="width: 265px;">现住所：
+								千葉県習志野市津田沼1-14-13</div>
+
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m2"></a>
+						</div>
+						<div class="fl w100per hang30  marginl50" style="width: 828px;">
+							<img src="./ijob_mypage_files/jiaoyujingli.png"
+								class="fl margint10" style="width: 17px; height: 14px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">学歴</div>
+							<a href="javascript:showAddeducation(36252,0)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">追加</div> <img
+								src="./ijob_mypage_files/tianjia.png" class="fr margint10"
+								style="width: 12px; height: 12px">
+							</a>
+						</div>
+						<div class="fl w100per" id="Addeducation"></div>
+
+						<div onmouseover="lineMove(1, 35956)"
+							onmouseout="lineMove(2, 35956)" id="line35956"
+							class="fl w100per   fnt16 fncolorhui margint10   pos_r "
+							style="padding-right: 50px; padding-left: 50px; padding-top: 12px; padding-bottom: 12px">
+							<img src="./ijob_mypage_files/wxzhuiquan.png"
+								class="fl marginl30"
+								style="width: 10px; height: 10px; margin-top: 6px">
+							<div class="fl hang20 marginl10" style="width: 140px">2017/03-2021/03</div>
+							<div class="fl hang20 marginl10">秀明大学</div>
+							<img src="./ijob_mypage_files/fengexian.png"
+								class="fl marginl10 marginr10"
+								style="height: 13px; width: 1px; margin-top: 6px">
+							<div class="fl hang20 ">大学</div>
+							<img src="./ijob_mypage_files/fengexian.png"
+								class="fl marginl10 marginr10"
+								style="height: 13px; width: 1px; margin-top: 6px">
+							<div class="fl hang20 ">総合経営学部</div>
+							<div class="pos_a   hang30"
+								style="width: 50px; right: 46px; top: 5px">
+								<a href="javascript:showAddeducation(36252,35956)">
+									<div class="fl" style="width: 45px; display: none"
+										onmouseover="xiugaiMove(1,35956)"
+										onmouseout="xiugaiMove(2, 35956)" id="xiugai35956">
+										<div class="fr hang30 fnt14  ta_r fncolorhongse"
+											style="width: 30px">直す</div>
+										<img src="./ijob_mypage_files/xiugai.png" class="fL margint10"
+											style="width: 13px; height: 13px">
+									</div>
+								</a> <input type="hidden" id="xiugaiData35956" value="0">
+							</div>
+
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m3"></a>
+						</div>
+						<div class="fl w100per hang30  marginl50" style="width: 828px;">
+							<img src="./ijob_mypage_files/zhili.png" class="fl margint10"
+								style="width: 14px; height: 13px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">職歴</div>
+							<a href="javascript:showAddworks(36252,0)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">追加</div> <img
+								src="./ijob_mypage_files/tianjia.png" class="fr margint10"
+								style="width: 12px; height: 12px">
+							</a>
+						</div>
+						<div class="fl w100per" id="Addworks"></div>
+
+						<div onmouseover="lineMove(1, 33639)"
+							onmouseout="lineMove(2, 33639)" id="line33639"
+							class="fl w100per paddingtb5  fnt16 fncolorhui margint10 bbox  pos_r"
+							style="padding-right: 50px; padding-left: 50px">
+							<img src="./ijob_mypage_files/wxzhuiquan.png"
+								class="fl marginl30"
+								style="width: 10px; height: 10px; margin-top: 12px">
+							<div class="fl paddingtb5 marginl10" style="width: 140px">2018/09-至今</div>
+							<div class="fl paddingtb5 marginl10">ドン・キホーテ</div>
+							<img src="./ijob_mypage_files/fengexian.png"
+								class="fl marginl10 marginr10"
+								style="height: 13px; width: 1px; margin-top: 10px">
+							<div class="fl paddingtb5 ">アパレル</div>
+							<div class="fl  fncolorshenhui marginl50 paddingb5"
+								style="width: 594px; line-height: 25px">工作描述：品出し、客対応など</div>
+							<div class="pos_a   hang30"
+								style="width: 50px; right: 46px; top: 20px">
+								<a href="javascript:showAddworks(36252,33639)">
+									<div class="fl" style="width: 45px; display: none"
+										onmouseover="xiugaiMove(1,33639)"
+										onmouseout="xiugaiMove(2, 33639)" id="xiugai33639">
+										<div class="fr hang30 fnt14  ta_r fncolorhongse"
+											style="width: 30px">直す</div>
+										<img src="./ijob_mypage_files/xiugai.png" class="fL margint10"
+											style="width: 13px; height: 13px">
+									</div>
+								</a> <input type="hidden" id="xiugaiData33639" value="0">
+							</div>
+
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m4"></a>
+						</div>
+						<div class="fl w100per hang30  marginl50" style="width: 828px;">
+							<img src="./ijob_mypage_files/zhiyuandongji.png" class="fl"
+								style="width: 12px; height: 15px; margin-top: 9px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">志望動機</div>
+							<a href="javascript:showEditzhiyuandongji(36252)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">修改</div> <img
+								src="./ijob_mypage_files/xiugai.png" class="fr margint10"
+								style="width: 13px; height: 13px">
+							</a>
+						</div>
+						<div class="fl w100per" id="Editzhiyuandongji"></div>
+						<div class="fl w100per paddingtb5  fnt14 fncolorshenhui margint10"
+							style="width: 650px; margin-left: 76px; line-height: 25px">後に直します
+
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m5"></a>
+						</div>
+						<div class="fl w100per hang30  marginl50" style="width: 828px;">
+							<img src="./ijob_mypage_files/quweiteji.png" class="fl margint10"
+								style="width: 16px; height: 13px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">趣味・特技</div>
+							<a href="javascript:showAddxingqu(36252)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">直す</div> <img
+								src="./ijob_mypage_files/xiugai.png" class="fr margint10"
+								style="width: 12px; height: 12px">
+							</a>
+						</div>
+						<div class="fl w100per" id="Addxingqu"></div>
+						<div class="fl w100per paddingtb5  fnt14 fncolorshenhui margint10"
+							style="width: 650px; margin-left: 76px; line-height: 25px">ゲーム好き
+
+						</div>
+
+						<div class="fl w100per" style="height: 70px">
+							<a name="m6"></a>
+						</div>
+						<div class="fl w100per hang30  marginl50" style="width: 828px;">
+							<img src="./ijob_mypage_files/mianxuzhige.png"
+								class="fl margint8" style="width: 14px; height: 15px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">免許・資格</div>
+							<a href="javascript:showAddjineng(36252)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">直す</div> <img
+								src="./ijob_mypage_files/xiugai.png" class="fr margint10"
+								style="width: 13px; height: 13px">
+							</a>
+						</div>
+						<div class="fl w100per" id="Addjineng"></div>
+						<div class="fl w100per paddingtb5  fnt14 fncolorshenhui margint10"
+							style="width: 650px; margin-left: 76px; line-height: 25px">
+							N1を取得しました <a name="m7"></a>
+						</div>
+
+						<div class="fl w100per hang30 margint70 marginl50"
+							style="width: 828px;">
+							<img src="./ijob_mypage_files/tupianzuoping.png" class="fl"
+								style="width: 15px; height: 11px; margin-top: 11px">
+							<div class="fl hang30 fnt18 marginl10" style="width: 100px">作品など</div>
+							<a href="javascript:showAddtupianzuoping(36252)">
+								<div class="fr hang30 fnt14 marginl5 ta_r fncolorhongse"
+									style="width: 30px">追加</div> <img
+								src="./ijob_mypage_files/tianjia.png" class="fr margint10"
+								style="width: 12px; height: 12px">
+							</a>
+						</div>
+						<div class="fl w100per paddingtb5 marginl50 margint10 bbox"
+							style="width: 805px; padding-left: 25px"></div>
+
+
+						<iframe style="display: none;" name="Upload_iframe"
+							id="Upload_iframe" src="./ijob_mypage_files/saved_resource.html"></iframe>
+
+					</div>
+					<div class="fl ta_r hang25 fnt14 fncolor999 margint10"
+						style="width: 928px;">更新时间：2021/02/12</div>
+
+				</div>
+				<div class="fr" style="width: 257px;">
+					<div class="fr  paddingtb10 borderR bgwri" style="width: 257px;">
+						<div
+							class="fl w100per hang40 fnt16 bbox paddinglr20 fncolorshenhui marginb10 ">履歴書</div>
+
+
+
+						<div class="fl w100per hang40 fnt14 bbox paddinglr20  fncolorbai "
+							onmouseover="lineMove(1, 36252)" onmouseout="lineMove(2, 36252)"
+							id="line36252">
+							<a
+								href="http://www.ijob.jp/?ctl=Jianli&amp;act=home&amp;id=36252">
+								<div class="fl overf fncolorhui" style="width: 85%;"
+									onmouseover="yulanMove(1, 36252)"
+									onmouseout="yulanMove(2, 36252)">正社员:林杰</div>
+							</a> <a
+								href="http://www.ijob.jp/?ctl=Jianli&amp;act=yulan&amp;id=36252"
+								target="_blank">
+								<div class="fl fncolorbai" style="width: 15%;">
+									<div class="fl  ta_r " style="width: 100%;" id="yulan36252"
+										onmouseover="yulanMove(1, 36252)"
+										onmouseout="yulanMove(2, 36252)">プレビュー</div>
+								</div>
+							</a>
+						</div>
+
+
+
+
+
+						<a href="javascript:" onclick="$(&#39;#appaddjianli&#39;).show()">
+							<div
+								class="fl  fncolorbai fnt14 bghong1 borderR hang40 margint20 marginl20 marginb20"
+								style="width: 217px;">
+								<img src="./ijob_mypage_files/jianliimg.png"
+									class="fl marginl70"
+									style="height: 18px; width: 12px; margin-top: 12px">
+								<div class="fl hang40 marginl10 ">履歴作成</div>
+							</div>
+						</a>
+
+
+					</div>
+
+
+					<div class="fr  paddingtb10 borderR bgwri  margint15 "
+						style="width: 257px;">
+						<div
+							class="fl w100per hang40 fnt16 bbox paddinglr20 fncolorshenhui marginb10">履歴追加</div>
+
+
+						<a href="javascript:showAddfujianjianli(36252)">
+							<div
+								class="fl ta_c fncolorbai fnt14 bghong1 borderR hang40 margint20 marginl20 marginb20"
+								style="width: 217px;">+履歴を追加する</div>
+						</a>
+
+					</div>
+
+
+
+					<div class="fr  paddingtb10 borderR bgwri margint15"
+						style="width: 257px; margin-bottom: 15px;">
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m1"> <img
+								src="./ijob_mypage_files/jibenxinxi.png" class="fl"
+								style="height: 11px; width: 15px; margin-top: 16px">
+								<div class="fl overf marginl10">基本情報</div>
+							</a>
+
+						</div>
+						<!--  <div class='fl w100per hang40 fnt14 bbox   '>
+						<div class='fl  hang30 bd2baiseleft fncolorshenhui '>
+							<a href="#m2">
+							<img src="tpl/images/jiaoyujingli.png" class='fl marginl20' style='height:14px;width:17px;margin-top:10px' >
+							<div class='fl overf marginl10 '>教育经历</div>
+							</a>
+						</div>
+					</div>
+					-->
+
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m2"> <img
+								src="./ijob_mypage_files/jiaoyujingli.png" class="fl"
+								style="height: 13px; width: 14px; margin-top: 15px">
+								<div class="fl overf marginl10">学歴</div>
+							</a>
+						</div>
+
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m3"> <img
+								src="./ijob_mypage_files/zhili.png" class="fl"
+								style="height: 13px; width: 14px; margin-top: 15px">
+								<div class="fl overf marginl10">職歴</div>
+							</a>
+						</div>
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m4"> <img
+								src="./ijob_mypage_files/zhiyuandongji.png" class="fl"
+								style="height: 15px; width: 12px; margin-top: 14px">
+								<div class="fl overf marginl10">志望動機</div>
+							</a>
+						</div>
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m5"> <img
+								src="./ijob_mypage_files/quweiteji.png" class="fl"
+								style="height: 13px; width: 16px; margin-top: 16px">
+								<div class="fl overf marginl10">趣味・特技</div>
+							</a>
+						</div>
+						<div
+							class="fl w100per hang40 fnt14 bbox paddinglr20 fncolor999 bd2baiseleft">
+							<a href="http://www.ijob.jp/?ctl=Jianli&amp;act=home#m6"> <img
+								src="./ijob_mypage_files/mianxuzhige.png" class="fl"
+								style="height: 15px; width: 14px; margin-top: 14px">
+								<div class="fl overf marginl10">免許・資格</div>
+							</a>
+						</div>
+
+
+					</div>
+					<div class="fl left0 top0  w100per bantoum pos_a appaddjianli"
+						style="z-index: 20005; height: 1500px; display: none"
+						id="appaddjianli">
+						<div
+							style="background-image: url(tpl/images/addjianli_app1.png); height: 342px; width: 802px; margin-left: -300px; margin-top: 350px; left: 50%"
+							class="pos_a bgcover pos_a ">
+							<a href="javascript:showAddjianli_type()"> <img
+								src="./ijob_mypage_files/guanbi.png" class="pos_a"
+								style="height: 17px; width: 16px; top: 15px; right: 15px">
+								<div class="pos_a ta_c bghong3 fncolorbai"
+									style="height: 35px; line-height: 35px; width: 200px; border-radius: 5px; bottom: 30px; right: 120px">
+									作成する</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!--
+	<div class='fl left0 top0  w100per bantoum pos_f'  style="z-index:20005;height:1500px" >
+		 <div class='fl borderR bgwri pos_r bbox bbox' style='width:340px;height:260px;margin-left:790px;margin-top:350px;padding-left:60px;padding-right:60px'>
+		 	<div class='fl w100per hang30 fncolorhui fnt20 ta_c  margint30'>创建简历</div>
+		 	<div class='fl w100per hangb40  fnt14 ta_c  bghong1 fncolorbai borderR margint15'>创建正社员简历</div>
+		 	<div class='fl w100per hangb40  fnt14 ta_c  bd2hongse bbox fncolorhongse borderR margint15'>创建小时工简历</div>
+		 	<div class='fl w100per hangb40  fnt14 ta_c  bd2hongse bbox fncolorhongse borderR margint15'>创建海外求职简历</div>
+		 	<img src="tpl/images/guanbi2.png" class='pos_a' style='height:13px;width:12px;top:10px;right:10px' >
+		 </div>
+	</div> -->
+
+
+
+
+				<div class="fl w100per" id="Addjianli_type"></div>
+				<div class="fl w100per" id="Addfujianjianli"></div>
+				<div class="fl w100per" id="Addtupianzuoping"></div>
+				<div class="fl w100per" id="Fangdatupian"></div>
+				<script>
+			function showEditgerenqingbao(id) {
+				$.get('?ctl=Jianli&act=editgerenqingbao', { id: id }, function (d) {
+					$('#Editgerenqingbao').html(d).show();
+				});
+			}
+
+			function showAddeducation(i_id, id) {
+				$.get('?ctl=Jianli&act=addeducation', { i_id: i_id, id: id }, function (d) {
+					$('#Addeducation').html(d).show();
+				});
+			}
+
+			function showAddworks(i_id, id) {
+				$.get('?ctl=Jianli&act=addworks', { i_id: i_id, id: id }, function (d) {
+					$('#Addworks').html(d).show();
+				});
+			}
+
+			function showEditzhiyuandongji(id) {
+				$.get('?ctl=Jianli&act=editzhiyuandongji', { id: id }, function (d) {
+					$('#Editzhiyuandongji').html(d).show();
+				});
+			}
+
+			function showAddxingqu(id) {
+				$.get('?ctl=Jianli&act=addxingqu', { id: id }, function (d) {
+					$('#Addxingqu').html(d).show();
+				});
+			}
+
+			function showAddjineng(id) {
+				$.get('?ctl=Jianli&act=addjineng', { id: id }, function (d) {
+					$('#Addjineng').html(d).show();
+				});
+			}
+
+			function showAddjianli_type() {
+				var uInfo_id = 190901;
+				if (uInfo_id > 0) {
+					$.get('?ctl=Jianli&act=addjianli_type', null, function (d) {
+						$('#Addjianli_type').html(d).show();
+						$("#appaddjianli").hide();
+					});
+				} else {
+					oAlert({ con: 'ログインしてください' });
+				}
+			}
+
+
+			function showAddfujianjianli(id) {
+				var uInfo_id = 190901;
+				if (uInfo_id > 0) {
+					$.get('?ctl=Jianli&act=addfujianjianli', { id: id }, function (d) {
+						$('#Addfujianjianli').html(d).show();
+
+					});
+				} else {
+					oAlert({ con: 'ログインしてください' });
+				}
+			}
+
+
+			function delfujianjianli(id) {
+				$.get('?ctl=Jianli&act=delfujianjianli', { id: id }, function (d) {
+					tiShiText(2, 'tishi_delsus', 'location.reload()');
+				});
+			}
+
+
+			function showAddtupianzuoping(id) {
+				$.get('?ctl=Jianli&act=addtupianzuoping', { id: id }, function (d) {
+					$('#Addtupianzuoping').html(d).show();
+				});
+			}
+
+
+			function showfangdatupian(id) {
+				$.get('?ctl=Jianli&act=fangdatupian', { id: id }, function (d) {
+					$('#Fangdatupian').html(d).show();
+				});
+			}
+
+
+
+			function delzuopngtupian(id) {
+				$.get('?ctl=Jianli&act=delzuopngtupian', { id: id }, function (d) {
+					tiShiText(2, 'tishi_delsus', 'location.reload()');
+				});
+			}
+
+
+
+
+			function lineMove(type, id) {
+				if (type == 1) {
+					$("#line" + id).addClass('bghui');
+					$("#xiugai" + id).show();
+				}
+				else {
+					$("#line" + id).removeClass('bghui');
+					if ($("#xiugaiData" + id).val() == 0) {
+						$("#xiugai" + id).hide();
+					}
+				}
+			}
+
+
+
+			function fujianMove(type, id) {
+				if (type == 1) {
+					$("#fujianline" + id).addClass('bghui');
+				}
+				else {
+					$("#fujianline" + id).removeClass('bghui');
+				}
+			}
+
+			function yulanMove(type, id) {
+				if (type == 1) {
+					$("#yulan" + id).addClass('fncolorhongse');
+				}
+				else {
+					$("#yulan" + id).removeClass('fncolorhongse');
+				}
+			}
+
+			function xiugaiMove(type, id) {
+				if (type == 1) {
+					$("#xiugai" + id).show();
+				}
+				else {
+					$("#xiugai" + id).hide();
+				}
+			}
+
+
+		</script>
+
+				<div class="w100per bghui  fl " style="height: 190px">
+					<div class=" center  fnt18 fncolorshenhui" style="height: 180px">
+						<div class="fl " style="width: 100px">
+							<div class="fl  margint30" style="width: 100px">Easy求人</div>
+							<a href="">
+								<div class="fl  margint30 fncolorhui" style="width: 100px">情報保護</div>
+							</a> <a href="">
+								<div class="fl  margint10 fncolorhui" style="width: 100px">ヘルプ</div>
+							</a>
+						</div>
+						<div class="fr marginl80" style="width: 600px">
+							<div class="fr w100per margint30">開発者Wechat</div>
+							<div class="fr w100per margint30"></div>
+							林杰(リンケツ)
+						</div>
+
+
+
+
+						<div class="fr fnt18 marginl20 " style="width: 150px">
+
+
+							<img src="../img/myWechat.png" class="fr margint20 footewm"
+								id="footewm2" style="width: 159px; height: 150px">
+						</div>
+
+					</div>
+				</div>
+
+</body>
+
+</html>

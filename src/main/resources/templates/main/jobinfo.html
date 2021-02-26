@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy求人</title>
+<link rel="stylesheet" href="../css/banner.css" type="text/css">
+<link rel="stylesheet" href="../css/top.css" type="text/css">
+
+</head>
+
+<body>
+
+	<!--ヘッド部分-->
+	<div class="w100per bgwri  pos_f left0 top0"
+		style="height: 70px; z-index: 20000">
+		<a href="/main">
+			<div class="pos_a " style="width: 370px; left: 100px; top: 0px">
+				<img src="../img/city.jpg" class="fl margint13">
+				<div class="fl fnt18 fncolorlan marginl20 "
+					style="width: 230px; height: 70px; line-height: 70px;" id="zgno1">Easy求人サイト</div>
+			</div>
+		</a>
+
+		<div class=" center  fnt18 "
+			style="width: 600px; height: 70px; line-height: 70px">
+			<a href="/main">
+				<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">
+					正社員
+					<div class="pos_a bottom0 bghong1"
+						style="width: 30px; height: 4px; left: 5px"></div>
+				</div>
+			</a> <a href="">
+				<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
+			</a>
+
+		</div>
+
+		<div class="pos_a"
+			style="width: 220px; right: 100px; top: 0px; height: 70px; line-height: 70px">
+
+			<a href="javascript:showUserDenglu(0)" target="_blank">
+				<div class="fl fnt10 fncolorhui" style="width: 90px;">応募</div>
+			</a> <a href="http://www.ijob.jp/index.php?ctl=Business&amp;act=home"
+				target="_blank">
+				<div class="fl fnt10  marginl40 fncolorhui" style="width: 90px;">企業</div>
+			</a>
+		</div>
+		<div class="fl w100per " id="UserLogin"></div>
+	</div>
+	<div class="w100per fl" style="height: 70px"></div>
+	<!--ライン-->
+	<hr color="#87ceeb" size="3" />
+	<!--main部分-->
+	<div align="center">
+
+
+		<div id="" align="right">
+			<a href="/login/mypage">myページ</a>
+		</div>
+
+		<div style="background-image: url(tpl/images/gsmengban.png)"
+			class="fl bgcover w100per">
+			<div class="center">
+				<div class="fl w100per paddingtb5 margint60">
+					<div class="fl  fnt40" style="width: 60%;">既卒外國人向け招聘（0基础可）</div>
+
+
+					<a href="javascript:" onclick="$(&#39;#bangding&#39;).show()">
+						<div
+							class="fr ta_c fnt16 fncolorbai bghong2 hangb40 marginl20 margint30"
+							style="width: 120px; border-radius: 30px">投递简历</div>
+					</a>
+
+
+
+
+
+
+
+
+
+					<div class="fl w100per" id="TelInfo"></div>
+					<div class="fl w100per" id="ToudiJianli"></div>
+				</div>
+				<div class="fl w100per paddingtb5 ">
+					<div class="fl fnt24 fncolorhongse">20万-40万+提成 （月給）</div>
+					<div class="fl  hang30 fnt16 marginl10 ">有料培训</div>
+					<img src="./ijobInfo_files/fengexian.png"
+						class="fl marginl10  margint10" style="height: 13px; width: 1px">
+
+
+					<div class="fl  hang30 fnt16 marginl10">挨拶程度</div>
+					<img src="./ijobInfo_files/fengexian.png"
+						class="fl marginl10 marginr10 margint10"
+						style="height: 13px; width: 1px">
+					<div class="fl  hang30 fnt16">无经验可</div>
+					<img src="./ijobInfo_files/fengexian.png"
+						class="fl marginl10 marginr10 margint10"
+						style="height: 13px; width: 1px">
+					<div class="fl  hang30 fnt16">中国语对应</div>
+
+				</div>
+
+				<div class="fl  bgwri borderR margint50 bbox"
+					style="width: 934px; padding-left: 40px; padding-right: 47px; padding-top: 20px">
+					<div class="fl w100per hang25 fnt16">
+						<a href="javascript:addCollection()">
+							<div class="fr " style="width: 70px">
+								<img src="./ijobInfo_files/shouchang_hei.png" class="fl"
+									style="height: 14px; width: 15px; margin-top: 6px; margin-right: 5px"
+									id="sc_img">
+								<div class="fl hang25 fncolorhui" id="sc_text">收藏</div>
+							</div>
+						</a> <a href="javascript:showJubaoJob(8270)">
+							<div class="fr " style="width: 90px">
+								<div class="fr hang25 fncolorhui" style="margin-right: 30px">举报</div>
+								<img src="./ijobInfo_files/jubao.png" class="fr "
+									style="height: 13px; width: 15px; margin-top: 7px; margin-right: 5px">
+							</div>
+						</a>
+
+					</div>
+
+
+					<div class="fl w100per hang40  fnt20">
+						<img src="./ijobInfo_files/zhiweifuli.png" class="fl"
+							style="height: 19px; width: 18px; margin-top: 12px">
+						<div class="fl hang40 marginl10">职位福利</div>
+					</div>
+					<div class="fl w100per paddingtb5  fnt14 fncolorshenhui ">
+						<div
+							class="fl hang30 paddinglr15 bbox ta_c borderR bdhuise1 marginr10 margint20"
+							style="line-height: 27px">有奖金</div>
+						<div
+							class="fl hang30 paddinglr15 bbox ta_c borderR bdhuise1 marginr10 margint20"
+							style="line-height: 27px">交通费支给</div>
+						<div
+							class="fl hang30 paddinglr15 bbox ta_c borderR bdhuise1 marginr10 margint20"
+							style="line-height: 27px">提供就职签证</div>
+						<div
+							class="fl hang30 paddinglr15 bbox ta_c borderR bdhuise1 marginr10 margint20"
+							style="line-height: 27px">社保年金</div>
+						<div
+							class="fl hang30 paddinglr15 bbox ta_c borderR bdhuise1 marginr10 margint20"
+							style="line-height: 27px">有薪假期</div>
+					</div>
+
+
+					<div class="fl w100per hang40  fnt20 margint50">
+						<img src="./ijobInfo_files/zhiweimiaoshu.png" class="fl"
+							style="height: 19px; width: 18px; margin-top: 12px">
+						<div class="fl hang40 marginl10">职位描述</div>
+					</div>
+					<div class="fl w100per paddingtb5  fnt14 margint15 "
+						style="line-height: 25px">
+						勤务时间:<br> 09:00-18:00 （平日、中间休1H）<br>
+						<br>
+
+
+					</div>
+
+					<div class="fl w100per hang40  fnt20 margint50">
+						<img src="./ijobInfo_files/gongzuodidian.png" class="fl"
+							style="height: 18px; width: 20px; margin-top: 12px">
+						<div class="fl hang40 marginl10">工作地点</div>
+					</div>
+					<div class="fl w100per paddingtb5 fnt16">
+						<div class="fl w50per paddingtb5">
+							地点：<span class="fncolorshenhui">東京都 新宿区 百人町4-9-2第二浅美ビル6階</span>
+						</div>
+						<div class="fl w50per paddingtb5">
+							车站：<span class="fncolorshenhui">高田馬場 徒歩 10 分钟</span>
+						</div>
+					</div>
+
+
+					<!--<div class='fl w100per bghong1 margint20' style='height:300px;'></div>  -->
+					<div class="fl w100per hang40 "></div>
+					<div class="fl w100per hang40  fnt20 margint50">
+						<img src="./ijobInfo_files/tuijianzhiwei.png" class="fl"
+							style="height: 19px; width: 20px; margin-top: 12px">
+						<div class="fl hang40 marginl10">推荐职位</div>
+
+						<a href="javascript:tuijianjobHuan()">
+							<div class="fr hang40 marginl10 fnt16 fncolorshenhui">换一批</div> <img
+							src="./ijobInfo_files/shuaxin.png" class="fr"
+							style="height: 18px; width: 18px; margin-top: 12px">
+						</a>
+
+					</div>
+					<div class="fl paddingtb5 w100per marginb60" id="btuijianBox">
+						<a
+							href="http://www.ijob.jp/index.php?ctl=Index&amp;act=jobinfo&amp;id=22545"
+							target="_blank">
+							<div class="fl " style="width: 50%">
+								<div
+									class="fl borderR bgwri bdhuise  margint15 paddingtb25 paddinglr20 bbox marginl5"
+									style="height: 128px; width: 410px">
+									<div class="fl w68per ">
+										<div class="fl w100per hang30 overf fnt16 fncolorhui">未経験クラウドエンジニア
+											大連</div>
+										<div
+											class="fl w100per hang25 overf fnt14 fncolorshenhui margint5">
+											<div class="fl  hang25  ">ビジネス</div>
+											<img src="./ijobInfo_files/fengexian.png"
+												class="fl marginl10 marginr10 margint10"
+												style="height: 13px; width: 1px">
+											<div class="fl  hang25 ">无经验可</div>
+										</div>
+										<div class="w100per fl hang25  overf fncolorshenhui"
+											style="font-size: 14px">
+											<div class="fl w30per hang20">
+												<img src="./ijobInfo_files/dizhiimg.png" class="fl margint5"
+													style="height: 13px; width: 10px">
+												<div class="fl hang20 overf "
+													style="width: 60px; margin-left: 5px">大阪府</div>
+											</div>
+											<div class="fr w65per hang20">
+												<img src="./ijobInfo_files/ditiemig.png" class="fl margint5"
+													style="height: 13px; width: 11px">
+												<div class="fr hang20 overf" style="width: 150px">大阪徒歩10分钟</div>
+											</div>
+										</div>
+									</div>
+									<div class="fr w30per ">
+										<div
+											class="fr w100per ta_r hang30 overf fncolorhongse fnt20 margint15">25万-30万
+										</div>
+										<div class="fr w100per ta_r hang30 overf fncolorshenhui fnt14">
+											株式会社&nbsp;雄大ヒューマニテー</div>
+									</div>
+								</div>
+							</div>
+						</a> <a
+							href="http://www.ijob.jp/index.php?ctl=Index&amp;act=jobinfo&amp;id=12634"
+							target="_blank">
+							<div class="fl " style="width: 50%">
+								<div
+									class="fl borderR bgwri bdhuise  margint15 paddingtb25 paddinglr20 bbox marginl5"
+									style="height: 128px; width: 410px">
+									<div class="fl w68per ">
+										<div class="fl w100per hang30 overf fnt16 fncolorhui">開発技術者募集</div>
+										<div
+											class="fl w100per hang25 overf fnt14 fncolorshenhui margint5">
+											<div class="fl  hang25  ">日常会話</div>
+											<img src="./ijobInfo_files/fengexian.png"
+												class="fl marginl10 marginr10 margint10"
+												style="height: 13px; width: 1px">
+											<div class="fl  hang25 ">中国语对应</div>
+										</div>
+										<div class="w100per fl hang25  overf fncolorshenhui"
+											style="font-size: 14px">
+											<div class="fl w30per hang20">
+												<img src="./ijobInfo_files/dizhiimg.png" class="fl margint5"
+													style="height: 13px; width: 10px">
+												<div class="fl hang20 overf "
+													style="width: 60px; margin-left: 5px">東京都</div>
+											</div>
+											<div class="fr w65per hang20">
+												<img src="./ijobInfo_files/ditiemig.png" class="fl margint5"
+													style="height: 13px; width: 11px">
+												<div class="fr hang20 overf" style="width: 150px">岩本町徒歩2分钟</div>
+											</div>
+										</div>
+									</div>
+									<div class="fr w30per ">
+										<div
+											class="fr w100per ta_r hang30 overf fncolorhongse fnt20 margint15">20万-60万
+										</div>
+										<div class="fr w100per ta_r hang30 overf fncolorshenhui fnt14">株式会社LCL</div>
+									</div>
+								</div>
+							</div>
+						</a> <a
+							href="http://www.ijob.jp/index.php?ctl=Index&amp;act=jobinfo&amp;id=20860"
+							target="_blank">
+							<div class="fl " style="width: 50%">
+								<div
+									class="fl borderR bgwri bdhuise  margint15 paddingtb25 paddinglr20 bbox marginl5"
+									style="height: 128px; width: 410px">
+									<div class="fl w68per ">
+										<div class="fl w100per hang30 overf fnt16 fncolorhui">システムエンジニア</div>
+										<div
+											class="fl w100per hang25 overf fnt14 fncolorshenhui margint5">
+											<div class="fl  hang25  ">日常会話</div>
+											<img src="./ijobInfo_files/fengexian.png"
+												class="fl marginl10 marginr10 margint10"
+												style="height: 13px; width: 1px">
+											<div class="fl  hang25 ">中国语对应</div>
+										</div>
+										<div class="w100per fl hang25  overf fncolorshenhui"
+											style="font-size: 14px">
+											<div class="fl w30per hang20">
+												<img src="./ijobInfo_files/dizhiimg.png" class="fl margint5"
+													style="height: 13px; width: 10px">
+												<div class="fl hang20 overf "
+													style="width: 60px; margin-left: 5px">東京都</div>
+											</div>
+											<div class="fr w65per hang20">
+												<img src="./ijobInfo_files/ditiemig.png" class="fl margint5"
+													style="height: 13px; width: 11px">
+												<div class="fr hang20 overf" style="width: 150px">岩本町徒歩3分钟</div>
+											</div>
+										</div>
+									</div>
+									<div class="fr w30per ">
+										<div
+											class="fr w100per ta_r hang30 overf fncolorhongse fnt20 margint15">42万~
+										</div>
+										<div class="fr w100per ta_r hang30 overf fncolorshenhui fnt14">株式会社
+											SNSソフト</div>
+									</div>
+								</div>
+							</div>
+						</a> <a
+							href="http://www.ijob.jp/index.php?ctl=Index&amp;act=jobinfo&amp;id=16755"
+							target="_blank">
+							<div class="fl " style="width: 50%">
+								<div
+									class="fl borderR bgwri bdhuise  margint15 paddingtb25 paddinglr20 bbox marginl5"
+									style="height: 128px; width: 410px">
+									<div class="fl w68per ">
+										<div class="fl w100per hang30 overf fnt16 fncolorhui">ソフトウェアのテスト設計</div>
+										<div
+											class="fl w100per hang25 overf fnt14 fncolorshenhui margint5">
+											<div class="fl  hang25  ">ビジネス</div>
+										</div>
+										<div class="w100per fl hang25  overf fncolorshenhui"
+											style="font-size: 14px">
+											<div class="fl w30per hang20">
+												<img src="./ijobInfo_files/dizhiimg.png" class="fl margint5"
+													style="height: 13px; width: 10px">
+												<div class="fl hang20 overf "
+													style="width: 60px; margin-left: 5px">東京都</div>
+											</div>
+											<div class="fr w65per hang20">
+												<img src="./ijobInfo_files/ditiemig.png" class="fl margint5"
+													style="height: 13px; width: 11px">
+												<div class="fr hang20 overf" style="width: 150px">半蔵門徒歩1分钟</div>
+											</div>
+										</div>
+									</div>
+									<div class="fr w30per ">
+										<div
+											class="fr w100per ta_r hang30 overf fncolorhongse fnt20 margint15">
+											2000-2500</div>
+										<div class="fr w100per ta_r hang30 overf fncolorshenhui fnt14">バルテス株式会社</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+
+
+				</div>
+				<a
+					href="http://www.ijob.jp/index.php?ctl=Index&amp;act=companyinfo&amp;id=3421"
+					target="_blank">
+					<div
+						class="fr paddingtb20 bgwri borderR margint50 bbox paddinglr20"
+						style="width: 256px; height: 238px;">
+						<div
+							style="background-image: url(https://ijob4.51ijob.com/attr/63a25f50b01fcd1cfd15a645cdfca1b1/3421/17cb0e56c6286aecd7557ee490a617c2__255_x_255__.jpg); height: 90px; width: 90px; margin-left: 53px"
+							class="fl bgcover borderR"></div>
+						<div
+							class="fl w100per ta_c hang25  fnt20 margint10 overf fncolorhui">エデン株式会社-在日外国人专属就职支援</div>
+						<div
+							class="fl w100per ta_c hang20 fncolorshenhui fnt14 margint8 overf">
+							<img src="./ijobInfo_files/dizhiimg.png"
+								style="height: 11px; width: 9px;"> 東京都 新宿区
+							百人町4－9－2第二浅美ビル6階
+						</div>
+						<div class="fl w100per ta_c hang20 fncolorshenhui fnt14 overf"
+							style="margin-top: 3px">
+							<img src="./ijobInfo_files/lingdai.png"
+								style="height: 12px; width: 7px;"> IT業
+						</div>
+						<div class="fl w100per ta_c hang20 fncolorlan fnt14 margint8"
+							style="line-height: 13px">
+							<img src="./ijobInfo_files/zaizhaozhiwei.png"
+								style="height: 11px; width: 12px;"> 热招职位4个
+						</div>
+					</div>
+				</a>
+
+
+				<div class="fr paddingtb20 bgwri  margint10 bbox paddinglr20"
+					style="width: 256px; height: 238px;">
+					<div class="fl w100per  hang20  fnt16 fncolorhui">商家图片</div>
+					<!--<div style="background-image:url(tpl/images/shili.jpg);height:165px;width:205px"  class='fl bgcover margint10' ></div> -->
+
+
+					<div class="com_brand bbox  fl margint10  borderR "
+						style="height: 165px; width: 205px">
+						<div class="fl w100per " style="color: #fff; height: 165px">
+							<div class="dis_t w100per " style="height: 165px;">
+								<div class="dis_r pos_r">
+									<div class="dis_c ve_m curp left-btn  pos_a "
+										style="width: 80px; left: 0px; top: 70px; z-index: 20006">
+										<img src="./ijobInfo_files/jiantou2.png" style="width: 20px">
+									</div>
+									<div class="dis_c pos_r banner w100per"
+										style="overflow: hidden; color: #000; line-height: 20px; height: 165px;"
+										id="banner">
+										<ul class="banner_ul"
+											style="width: 1230px; display: block; left: -205px;">
+
+											<li class="banner_li" style="width: 205px;"><a
+												href="https://ijob4.51ijob.com/attr/20200412/5f7e91dce98d7758e4f718bc1d950342__640_x_427__.jpg"
+												data-size="640x427">
+													<div
+														style="background-image: url(https://ijob4.51ijob.com/attr/20200412/5f7e91dce98d7758e4f718bc1d950342__640_x_427__.jpg); height: 165px"
+														class="fl bgcover w100per "></div>
+											</a></li>
+											<li class="banner_li" style="width: 205px;"><a
+												href="https://ijob4.51ijob.com/attr/20200412/bdd1063df89025220d209aa1be500809__640_x_1066__.jpg"
+												data-size="640x426">
+													<div
+														style="background-image: url(https://ijob4.51ijob.com/attr/20200412/bdd1063df89025220d209aa1be500809__640_x_1066__.jpg); height: 165px"
+														class="fl bgcover w100per "></div>
+											</a></li>
+											<li class="banner_li" style="width: 205px;"><a
+												href="https://ijob4.51ijob.com/attr/20200412/bc0457be87c6d92f098af65aa29ef1dc__640_x_401__.jpg"
+												data-size="600x401">
+													<div
+														style="background-image: url(https://ijob4.51ijob.com/attr/20200412/bc0457be87c6d92f098af65aa29ef1dc__640_x_401__.jpg); height: 165px"
+														class="fl bgcover w100per "></div>
+											</a></li>
+											<li class="banner_li" style="width: 205px;"><a
+												href="https://ijob4.51ijob.com/attr/20200412/74b87dfc61707fddb01ed63b67fb481a__640_x_429__.jpg"
+												data-size="640x426">
+													<div
+														style="background-image: url(https://ijob4.51ijob.com/attr/20200412/74b87dfc61707fddb01ed63b67fb481a__640_x_429__.jpg); height: 165px"
+														class="fl bgcover w100per "></div>
+											</a></li>
+
+											<li class="banner_li" style="width: 205px;"><a
+												href="https://ijob4.51ijob.com/attr/20200412/5f7e91dce98d7758e4f718bc1d950342__640_x_427__.jpg"
+												data-size="640x427">
+													<div
+														style="background-image: url(https://ijob4.51ijob.com/attr/20200412/5f7e91dce98d7758e4f718bc1d950342__640_x_427__.jpg); height: 165px"
+														class="fl bgcover w100per "></div>
+											</a></li>
+										</ul>
+									</div>
+									<div class="dis_c ve_m ta_r curp right-btn  pos_a"
+										style="right: 10px; top: 70px">
+										<img src="./ijobInfo_files/jiantou1.png" style="width: 20px;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<img src="./ijobInfo_files/shoujierweima.png" class="fr margint10"
+					style="height: 190px; width: 256px">
+
+			</div>
+		</div>
+
+		<div class="w100per bghui  fl " style="height: 190px">
+			<div class=" center  fnt18 fncolorshenhui" style="height: 180px">
+				<div class="fl " style="width: 100px">
+					<div class="fl  margint30" style="width: 100px">Easy求人</div>
+					<a href="">
+						<div class="fl  margint30 fncolorhui" style="width: 100px">情報保護</div>
+					</a> <a href="">
+						<div class="fl  margint10 fncolorhui" style="width: 100px">ヘルプ</div>
+					</a>
+				</div>
+				<div class="fr marginl80" style="width: 600px">
+					<div class="fr w100per margint30">開発者Wechat</div>
+					<div class="fr w100per margint30"></div>
+					林杰(リンケツ)
+				</div>
+
+
+
+
+				<div class="fr fnt18 marginl20 " style="width: 150px">
+
+
+					<img src="../img/myWechat.png" class="fr margint20 footewm"
+						id="footewm2" style="width: 159px; height: 150px">
+				</div>
+
+			</div>
+		</div>
+</body>
+
+</html>
