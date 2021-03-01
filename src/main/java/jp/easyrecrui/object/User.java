@@ -4,21 +4,21 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", password=" + password + ", toString()=" + super.toString() + "]";
+		return "User [userId=" + userId + ", password=" + password + ", toString()=" + super.toString() + "]";
 	}
-	private String userid;
+	private String userId;
 	private String password;
 	/**
 	 * @return userid
 	 */
-	public String getUserid() {
-		return userid;
+	public String getUserId() {
+		return userId;
 	}
 	/**
 	 * @param userid セットする userid
 	 */
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserId(String userid) {
+		this.userId = userid;
 	}
 	/**
 	 * @return password
