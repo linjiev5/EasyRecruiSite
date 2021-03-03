@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/top.css" type="text/css">
+
 </head>
 <body>
 	<div id="div_left">
@@ -16,51 +17,46 @@
 
 	<div class="center">
 		<h2>すべての項目を入力してください</h2>
-		<form th:action="@{/regist}" method="post">
+		<form th:action="@{/regist}" method="post" >
 			<p class="margint10 fncolorhongse" th:text="${message}"
 				th:if="${not #strings.isEmpty(message)}"></p>
 			<div class="form-group">
-				<label for="email">ユーザ:</label> <input type="text"
+				<label for="text">ユーザ:</label> <input type="text"
 					class="form-control" id="user" name="userId"
-					placeholder="ユーザ名を入力してください">
+					placeholder="ユーザ名を入力してください" required="required">
 			</div>
 			<div class="form-group">
 				<label for="pwd">パスワード:</label> <input type="password"
 					class="form-control" id="pwd" name="userPwd"
-					placeholder="パスワードを入力してください">
+					placeholder="パスワードを入力してください" required="required">
 			</div>
 			<div class="form-group">
 				<label for="email">名前:</label> <input type="text"
-					class="form-control"  name="name"
-					placeholder="名前を入力してください">
+					class="form-control" name="name" placeholder="名前を入力してください" required="required">
 			</div>
 			<div class="form-group">
 				<label for="email">メール:</label> <input type="text"
-					class="form-control"  name="mail"
-					placeholder="メールを入力してください">
+					class="form-control" name="mail" placeholder="メールを入力してください" required="required">
 			</div>
 			<div class="form-group">
 				<label for="email">電話番号:</label> <input type="number"
-					class="form-control"  name="tel"
-					placeholder="電話番号を入力してください">
+					class="form-control" name="tel" placeholder="電話番号を入力してください" required="required">
 			</div>
 			<div class="form-group">
-				     <label class="radio-inline"><input type="radio" name="sex" value="1">男</label>
-				     <label class="radio-inline"><input type="radio" name="sex" value="0">女</label>
+				<label class="radio-inline"><input type="radio" name="sex"
+					value="1" checked>男</label> <label class="radio-inline"><input
+					type="radio" name="sex" value="0">女</label>
 			</div>
 			<div class="form-group">
 				<label for="email">住所:</label> <input type="datetime"
-					class="form-control"  name="adress"
-					placeholder="住所を入力してください">
+					class="form-control" name="adress" placeholder="住所を入力してください" required="required">
 			</div>
 			<div class="form-group">
 				<label for="email">誕生日:</label> <input type="date"
-					class="form-control"  name="birth"
-					placeholder="xxxx/xx/xx">
+					class="form-control" name="birth" placeholder="xxxx/xx/xx" required="required">
 			</div>
 			<button type="submit" class="btn btn-primary">登録</button>
-	</div>
-	</form>
+		</form>
 	</div>
 </body>
 </html>
