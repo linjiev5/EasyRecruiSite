@@ -1,5 +1,7 @@
 package jp.easyrecrui.contoller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,17 +12,25 @@ import jp.easyrecrui.utils.UrlPath;
 @Controller
 public class IndexController {
 
-	@RequestMapping(UrlPath.MAIN_VIEW) // url地址值
+	@RequestMapping({"/",UrlPath.MAIN_VIEW}) // url地址值
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView("main/main");// path,指向templates中的文件路径
+
 		return mav;
 
 	}
 
 	@RequestMapping(UrlPath.MYPAGE_VIEW)
-	public ModelAndView mypage(Model model) {
+	public ModelAndView mypage(HttpSession session) {
+		Object userLogin = session.getAttribute("loginUser");
 		ModelAndView mav = new ModelAndView("login/myPage");// テンプレートHTML指定
+		if(userLogin == null) {
+
+		}else {
+
+		}
 		return mav;
+
 	}
 
 	@RequestMapping(UrlPath.JOBPAGE_VIEW)

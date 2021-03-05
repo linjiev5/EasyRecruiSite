@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -7,6 +7,11 @@
 <title>Easy求人</title>
 <link rel="stylesheet" href="../css/banner.css" type="text/css">
 <link rel="stylesheet" href="../css/top.css" type="text/css">
+<script>
+var a= ${session?.loginUser};
+alert(a);
+
+</script>
 </head>
 
 <body>
@@ -25,8 +30,10 @@
 		<div class=" center  fnt18 "
 			style="width: 600px; height: 70px; line-height: 70px">
 			<a th:href="@{/main}">
-				<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">正社員
-				<div class="pos_a bottom0 bghong1" style="width:30px;height:4px;left:5px"></div>
+				<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">
+					正社員
+					<div class="pos_a bottom0 bghong1"
+						style="width: 30px; height: 4px; left: 5px"></div>
 				</div>
 			</a> <a href="">
 				<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
@@ -34,15 +41,19 @@
 
 		</div>
 
-		<div class="pos_a"
+		<div class="pos_a" id="not_login"
 			style="width: 220px; right: 100px; top: 0px; height: 70px; line-height: 70px">
-
-			<a th:href="@{/login}" >
+			<a th:href="@{/login}">
 				<div class="fl fnt10 fncolorhui" style="width: 90px;">応募</div>
 			</a> <a href="http://www.ijob.jp/index.php?ctl=Business&amp;act=home"
 				target="_blank">
 				<div class="fl fnt10  marginl40 fncolorhui" style="width: 90px;">企業</div>
 			</a>
+		</div>
+		<div id="div_right" th:if="${session?.loginUser}"
+			style="width: 220px; right: 100px; top: 0px; height: 70px; line-height: 70px">
+
+			<a href="/login/mypage" th:text="${session?.loginUser}"></a>
 		</div>
 		<div class="fl w100per " id="UserLogin"></div>
 	</div>
@@ -53,12 +64,7 @@
 	<div align="center">
 
 
-		<div id="" align="right">
-
-				<a href="/login/mypage">myページ</a>
-
-
-		</div>
+		<div id="" align="right"></div>
 		<div style="background-image: url(tpl/images/gsmengban.png)"
 			class="fl bgcover w100per">
 

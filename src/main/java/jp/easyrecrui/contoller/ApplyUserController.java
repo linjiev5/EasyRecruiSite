@@ -3,8 +3,12 @@ package jp.easyrecrui.contoller;
 import java.sql.Date;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +18,7 @@ import jp.easyrecrui.object.User;
 import jp.easyrecrui.service.ApplyUserService;
 import jp.easyrecrui.utils.CodeType;
 import jp.easyrecrui.utils.Md5Code;
+import jp.easyrecrui.utils.UrlPath;
 
 @RestController
 public class ApplyUserController {
@@ -29,7 +34,7 @@ public class ApplyUserController {
 	 */
 	@PostMapping(value = "/login")
 	public ModelAndView login(@RequestParam(name = "userId") String userId,
-			@RequestParam(name = "userPwd") String userPwd, Map<String, Object> message) {
+			@RequestParam(name = "userPwd") String userPwd, Map<String, Object> message, HttpSession session) {
 		ModelAndView mav = new ModelAndView("login/login");
 		User user = new User();
 		userPwd = Md5Code.md5Code(userPwd);
@@ -46,6 +51,7 @@ public class ApplyUserController {
 			return mav;
 		} else {
 			// ログイン成功
+			session.setAttribute("loginUser", userId);
 			mav.setViewName("main/main");
 			return mav;
 		}
@@ -123,5 +129,33 @@ public class ApplyUserController {
 			}
 			return mav;
 		}
+	}
+
+	//	/**
+	//	 *
+	//	 */
+	//	@RequestMapping(value = "/login/mypage")
+	//	public String getApplyUserInfo( Map<String, Object> message,HttpSession session,Model  model) {
+	//
+	//		ApplyUser applyUser = new ApplyUser();
+	//		int result = applyUserService.findUser(applyUser);
+	//		// ユーザが存在する場合
+	//		if (result == CodeType.USER_EXIST.getCode()) {
+	//			List<ApplyUser> applyInfo = new ArrayList<ApplyUser>();
+	//			String userLogin=(String)session.getAttribute("userLogin");
+	//			applyInfo = applyUserService.getUserData(userLogin);
+	//			model.addAttribute("applyInfo",applyInfo);
+	//			System.out.println(applyInfo);
+	//		}
+	//
+	//	return "login/mypage";
+	//	}
+	@RequestMapping(UrlPath.APPLY_USER_INFO)
+	public ModelAndView list(Model model,HttpSession hs) {
+		ModelAndView mav =new ModelAndView("applyUser/applyUserInfo");
+		String userLogin = (String)hs.getAttribute("loginUser");
+		ApplyUser applyUser = applyUserService.getUserData(userLogin);
+		model.addAttribute("applyUserInfo",applyUser);
+		return mav;
 	}
 }

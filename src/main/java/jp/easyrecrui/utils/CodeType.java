@@ -14,6 +14,8 @@ public enum CodeType {
 	PASSWORD_ERROR(2,"パスワード正しくない"),
 	USER_EXIST(1,"ユーザはすでに存在します"),
 	REGIST_SUCESS(3,"ユーザ登録成功しました"),
+
+	USER_NOT_LOGIN(101,"ログインしてない");
 	;
 
 	private int code;

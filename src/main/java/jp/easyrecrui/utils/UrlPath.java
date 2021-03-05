@@ -15,6 +15,7 @@ public class UrlPath {
 
 	public static final String MAIN_VIEW = "/main";
 	public static final String MYPAGE_VIEW = "/login/mypage";
+	public static final String APPLY_USER_INFO = "/applyInfo";
 	public static final String JOBPAGE_VIEW = "/main/jobpage";
 	public static final String LOGIN = "/login";
 	public static final String REGIST_VIEW = "/regist";

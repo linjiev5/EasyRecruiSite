@@ -38,12 +38,13 @@ public class ApplyUserService {
 		}
 
 	}
+
 	/**
 	 *
 	 */
 	public int addUser(ApplyUser applyUser) {
 		List<EasyRecruiApplyUser> newUser = applyUserRepository.findByUserId(applyUser.getUserId().toString());
-		if(newUser.isEmpty()) {
+		if (newUser.isEmpty()) {
 			EasyRecruiApplyUser eay = new EasyRecruiApplyUser();
 			eay.setUserId(applyUser.getUserId());
 			eay.setMail(applyUser.getMail());
@@ -57,10 +58,33 @@ public class ApplyUserService {
 			eay.setCreateTime(timestamp);
 			applyUserRepository.saveAndFlush(eay);
 			return CodeType.REGIST_SUCESS.getCode();
-		}else {
+		} else {
 			return CodeType.USER_EXIST.getCode();
 		}
 
+	}
 
+	/**
+	 * ユーザのデータを取得する
+	 */
+	public ApplyUser getUserData(String userId) {
+		List<EasyRecruiApplyUser> newUser = applyUserRepository.findByUserId(userId);
+		ApplyUser setData = new ApplyUser();
+		if (!newUser.isEmpty()) {
+			EasyRecruiApplyUser era = newUser.get(0);
+			setData.setAdress(era.getAdress());
+			setData.setBirth(era.getBirthday());
+			setData.setMail(era.getMail());
+			setData.setName(era.getName());
+			setData.setPassword(era.getPassword());
+			setData.setSex(era.getSex());
+			setData.setTel(era.getTel());
+			setData.setUserId(era.getUserId());
+			System.out.println(setData);
+		}else {
+
+		}
+
+		return setData;
 	}
 }
