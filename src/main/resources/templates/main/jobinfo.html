@@ -13,53 +13,12 @@
 <body>
 
 	<!--ヘッド部分-->
-	<div class="w100per bgwri  pos_f left0 top0"
-		style="height: 70px; z-index: 20000">
-		<a href="/main">
-			<div class="pos_a " style="width: 370px; left: 100px; top: 0px">
-				<img src="../img/city.jpg" class="fl margint13">
-				<div class="fl fnt18 fncolorlan marginl20 "
-					style="width: 230px; height: 70px; line-height: 70px;" id="zgno1">Easy求人サイト</div>
-			</div>
-		</a>
-
-		<div class=" center  fnt18 "
-			style="width: 600px; height: 70px; line-height: 70px">
-			<a href="/main">
-				<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">
-					正社員
-					<div class="pos_a bottom0 bghong1"
-						style="width: 30px; height: 4px; left: 5px"></div>
-				</div>
-			</a> <a href="">
-				<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
-			</a>
-
-		</div>
-
-		<div class="pos_a"
-			style="width: 220px; right: 100px; top: 0px; height: 70px; line-height: 70px">
-
-			<a href="javascript:showUserDenglu(0)" target="_blank">
-				<div class="fl fnt10 fncolorhui" style="width: 90px;">応募</div>
-			</a> <a href="http://www.ijob.jp/index.php?ctl=Business&amp;act=home"
-				target="_blank">
-				<div class="fl fnt10  marginl40 fncolorhui" style="width: 90px;">企業</div>
-			</a>
-		</div>
-		<div class="fl w100per " id="UserLogin"></div>
-	</div>
-	<div class="w100per fl" style="height: 70px"></div>
+	<div th:insert="~{main/part::top}"></div>
 	<!--ライン-->
 	<hr color="#87ceeb" size="3" />
 	<!--main部分-->
 	<div align="center">
-
-
-		<div id="" align="right">
-			<a href="/login/mypage">myページ</a>
-		</div>
-
+	
 		<div style="background-image: url(tpl/images/gsmengban.png)"
 			class="fl bgcover w100per">
 			<div class="center">

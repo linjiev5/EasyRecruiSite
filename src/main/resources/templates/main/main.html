@@ -44,7 +44,7 @@
 
 					<div class="fl bgwri touying borderR margint40 "
 						style="width: 232px; padding-bottom: 14px; padding-top: 14px">
-						<a href="/main/jobpage">
+						<a th:href="@{/main/jobpage}">
 							<div
 								class="fl paddingl30 paddingr20  bbox fncolorhui fnt18 w100per "
 								style="height: 40px; line-height: 40px;" id="job"
@@ -88,7 +88,6 @@
 					<div class="com_brand bbox  fl margint40 marginl20 borderR "
 						style="height: 425px; width: 948px;">
 						<div class="fl " style="color: #fff; height: 425px; width: 948px;">
-							<!--  <div class="ta_c" style="font-size:18px;">什么值得投</div> -->
 							<div class="dis_t w100per " style="height: 425px;">
 								<div class="dis_r pos_r">
 									<div class="dis_c ve_m curp left-btn  pos_a "
@@ -134,7 +133,7 @@
 	</div>
 	<div class="w100per bghui  fl " style="height: 190px">
 		<!-- foot -->
-			<div th:insert="~{main/part::foot}"></div>
+		<div th:insert="~{main/part::foot}"></div>
 	</div>
 
 </body>
