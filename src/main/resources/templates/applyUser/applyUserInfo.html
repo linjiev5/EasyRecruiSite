@@ -21,139 +21,45 @@
 </head>
 
 <body>
-	<div id="wrapper">
-		<nav class="navbar navbar-default top-navbar" role="applyUser">
-			<div class="w100per bgwri  pos_f left0 top0"
-				style="height: 70px; z-index: 20000">
-				<a href="/main">
-					<div class="pos_a " style="width: 370px; left: 100px; top: 0px">
-						<img src="../img/city.jpg" class="fl margint13">
-						<div class="fl fnt18 fncolorlan marginl20 "
-							style="width: 230px; height: 70px; line-height: 70px;" id="zgno1">Easy求人サイト</div>
-					</div>
-				</a>
+	<!-- top追加する -->
+	<div th:insert="~{main/part::top}">
+		<!--/. NAV TOP  -->
+		<div th:insert="~{main/part::sidebar}">
+			<div id="page-inner">
 
-				<div class=" center  fnt18 "
-					style="width: 600px; height: 70px; line-height: 70px">
-					<a href="/main">
-						<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">
-							正社員
-							<div class="pos_a bottom0 bghong1"
-								style="width: 30px; height: 4px; left: 5px"></div>
-						</div>
-					</a> <a href="">
-						<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
-					</a>
+				<div class="col-md-12">
 
-				</div>
+					<table style="color: red">
 
-
-			</div>
-
-			<!--/. NAV TOP  -->
-			<nav class="navbar-default navbar-side" role="navigation">
-				<div id="sideNav" href="">
-					<i class="fa fa-caret-right"></i>
-				</div>
-				<div class="sidebar-collapse">
-					<ul class="nav" id="main-menu">
-
-						<li><a class="active-menu" th:href="@{/applyInfo}"><i
-								class="fa fa-dashboard"></i> 個人情報</a></li>
-								<br/>
-						<li><a class="active-menu" href="index.html"><i
-								class="fa fa-dashboard"></i> 履歴書</a></li>
-
-
-					</ul>
-
-				</div>
-
-			</nav>
-			<!-- /. NAV SIDE  -->
-
-				<div id="page-inner">
-
-
-					<div class="row">
-						<div class="col-md-12">
-							<h1 class="page-header" th:text="${session?.loginUser}">
-								Dashboard <small>/</small>
-							</h1>
-							<ol class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Library</a></li>
-								<li class="active">Data</li>
-							</ol>
-						</div>
-					</div>
-
-
-
-
-
-
-
-
-					<!-- /. NAV SIDE  -->
-					<div>
-					<ul >
-					<li ></li>
-
-					</ul>
-
-						<table style="color:red">
-
-							<tr>
+						<tr>
 							<th>名前</th>
 							<th>メール</th>
 							<th>性別</th>
 							<th>住所</th>
 							<th>誕生日</th>
-							</tr>
-							<tr th:each="data:${applyUserInfo}" th:object="${data}">
+						</tr>
+						<tr th:each="data:${applyUserInfo}" th:object="${data}">
 							<td th:text="*{name}"></td>
 							<td th:text="*{mail}"></td>
 							<td th:text="*{tel}"></td>
 							<td th:text="*{sex}"></td>
 							<td th:text="*{adress}"></td>
 							<td th:text="*{birth}"></td>
-							</tr>
+						</tr>
 
-						</table>
-
-					</div>
-					<div class="w100per bghui  fl " style="height: 190px">
-						<div class=" center  fnt18 fncolorshenhui" style="height: 180px">
-							<div class="fl " style="width: 100px">
-								<div class="fl  margint30" style="width: 100px">Easy求人</div>
-								<a href="">
-									<div class="fl  margint30 fncolorhui" style="width: 100px">情報保護</div>
-								</a> <a href="">
-									<div class="fl  margint10 fncolorhui" style="width: 100px">ヘルプ</div>
-								</a>
-							</div>
-							<div class="fr marginl80" style="width: 600px">
-								<div class="fr w100per margint30">開発者Wechat</div>
-								<div class="fr w100per margint30"></div>
-								林杰(リンケツ)
-							</div>
-
-
-
-
-							<div class="fr fnt18 marginl20 " style="width: 150px">
-
-
-								<img src="../img/myWechat.png" class="fr margint20 footewm"
-									id="footewm2" style="width: 159px; height: 150px">
-							</div>
-
-						</div>
-					</div>
-
+					</table>
 
 				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- foot追加 -->
+	<div th:insert="main/part::foot"></div>
+	>
+
+	</div>
 </body>
 
 </html>

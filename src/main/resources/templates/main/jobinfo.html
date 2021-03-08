@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -462,32 +462,8 @@
 		</div>
 
 		<div class="w100per bghui  fl " style="height: 190px">
-			<div class=" center  fnt18 fncolorshenhui" style="height: 180px">
-				<div class="fl " style="width: 100px">
-					<div class="fl  margint30" style="width: 100px">Easy求人</div>
-					<a href="">
-						<div class="fl  margint30 fncolorhui" style="width: 100px">情報保護</div>
-					</a> <a href="">
-						<div class="fl  margint10 fncolorhui" style="width: 100px">ヘルプ</div>
-					</a>
-				</div>
-				<div class="fr marginl80" style="width: 600px">
-					<div class="fr w100per margint30">開発者Wechat</div>
-					<div class="fr w100per margint30"></div>
-					林杰(リンケツ)
-				</div>
-
-
-
-
-				<div class="fr fnt18 marginl20 " style="width: 150px">
-
-
-					<img src="../img/myWechat.png" class="fr margint20 footewm"
-						id="footewm2" style="width: 159px; height: 150px">
-				</div>
-
-			</div>
+			<!-- foot -->
+			<div th:insert="~{main/part::foot}"></div>
 		</div>
 </body>
 

@@ -14,7 +14,6 @@ import jp.easyrecrui.repository.ApplyUserRepository;
 import jp.easyrecrui.utils.CodeType;
 
 @Service
-@Transactional
 public class ApplyUserService {
 	@Autowired
 	ApplyUserRepository applyUserRepository;
@@ -24,6 +23,7 @@ public class ApplyUserService {
 	 * @param user
 	 * @return
 	 */
+	@Transactional
 	public int findUser(User user) {
 		List<EasyRecruiApplyUser> newUser = applyUserRepository.findByUserId(user.getUserId().toString());
 		if (newUser.isEmpty()) {
@@ -42,6 +42,7 @@ public class ApplyUserService {
 	/**
 	 *
 	 */
+	@Transactional
 	public int addUser(ApplyUser applyUser) {
 		List<EasyRecruiApplyUser> newUser = applyUserRepository.findByUserId(applyUser.getUserId().toString());
 		if (newUser.isEmpty()) {
@@ -67,6 +68,7 @@ public class ApplyUserService {
 	/**
 	 * ユーザのデータを取得する
 	 */
+	@Transactional
 	public ApplyUser getUserData(String userId) {
 		List<EasyRecruiApplyUser> newUser = applyUserRepository.findByUserId(userId);
 		ApplyUser setData = new ApplyUser();
@@ -80,7 +82,7 @@ public class ApplyUserService {
 			setData.setSex(era.getSex());
 			setData.setTel(era.getTel());
 			setData.setUserId(era.getUserId());
-			System.out.println(setData);
+//			System.out.println(setData);
 		}else {
 
 		}

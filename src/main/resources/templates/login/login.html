@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -14,45 +14,9 @@
 <body>
 
 	<!--ヘッド部分-->
-	<div class="w100per bgwri  pos_f left0 top0"
-		style="height: 70px; z-index: 20000">
-		<a href="/main">
-			<div class="pos_a " style="width: 370px; left: 100px; top: 0px">
-				<img src="../img/city.jpg" class="fl margint13">
-				<div class="fl fnt18 fncolorlan marginl20 "
-					style="width: 230px; height: 70px; line-height: 70px;" id="zgno1">Easy求人サイト</div>
-			</div>
-		</a>
-
-		<div class=" center  fnt18 "
-			style="width: 600px; height: 70px; line-height: 70px">
-			<a href="/main">
-				<div class="fl ta_c  fncolorhui pos_r" style="width: 54px;">
-					正社員
-					<div class="pos_a bottom0 bghong1"
-						style="width: 30px; height: 4px; left: 5px"></div>
-				</div>
-			</a> <a href="">
-				<div class="fl marginl50   fncolorhui pos_r";>アルバイト</div>
-			</a>
-
-		</div>
-
-		<div class="pos_a"
-			style="width: 220px; right: 100px; top: 0px; height: 70px; line-height: 70px">
-
-			<a th:href="@{/login}">
-				<div class="fl fnt10 fncolorhui" style="width: 90px;">応募</div>
-			</a> <a href="http://www.ijob.jp/index.php?ctl=Business&amp;act=home"
-				target="_blank">
-				<div class="fl fnt10  marginl40 fncolorhui" style="width: 90px;">企業</div>
-			</a>
-		</div>
-		<div class="fl w100per " id="UserLogin"></div>
-	</div>
+	<div th:insert="~{main/part::top}"></div>
 	<div class="w100per fl" style="height: 70px"></div>
-	<!--ライン-->
-	<hr color="#87ceeb" size="3" />
+
 	<!--main部分-->
 	<div align="center">
 
@@ -64,7 +28,8 @@
 		<div class="container">
 			<h2>ログインしてください</h2>
 			<form th:action="@{/login}" method="post">
-				<p class="margint10 fncolorhongse" th:text="${message}" th:if="${not #strings.isEmpty(message)}"></p>
+				<p class="margint10 fncolorhongse" th:text="${message}"
+					th:if="${not #strings.isEmpty(message)}"></p>
 				<div class="form-group">
 					<label for="email">ユーザ:</label> <input type="text"
 						class="form-control" id="user" name="userId"
@@ -78,39 +43,15 @@
 
 				<button type="submit" class="btn btn-primary">ログイン</button>
 			</form>
-			</div>
-			<div class="div_right">
-				<a th:href="@{/regist}">登録</a>
-			</div>
+		</div>
+		<div class="div_right">
+			<a th:href="@{/regist}">登録</a>
+		</div>
 
-			<div class="w100per bghui  fl " style="height: 190px">
-				<div class=" center  fnt18 fncolorshenhui" style="height: 180px">
-					<div class="fl " style="width: 100px">
-						<div class="fl  margint30" style="width: 100px">Easy求人</div>
-						<a href="">
-							<div class="fl  margint30 fncolorhui" style="width: 100px">情報保護</div>
-						</a> <a href="">
-							<div class="fl  margint10 fncolorhui" style="width: 100px">ヘルプ</div>
-						</a>
-					</div>
-					<div class="fr marginl80" style="width: 600px">
-						<div class="fr w100per margint30">開発者Wechat</div>
-						<div class="fr w100per margint30"></div>
-						林杰(リンケツ)
-					</div>
-
-
-
-
-					<div class="fr fnt18 marginl20 " style="width: 150px">
-
-
-						<img src="../img/myWechat.png" class="fr margint20 footewm"
-							id="footewm2" style="width: 159px; height: 150px">
-					</div>
-
-				</div>
-			</div>
+		<div class="w100per bghui  fl " style="height: 190px">
+			<!--foot部分-->
+			<div th:insert="~{main/part::foot}"></div>
+		</div>
 </body>
 
 </html>

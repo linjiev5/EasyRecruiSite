@@ -6,11 +6,11 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import jp.easyrecrui.object.ApplyUser;
@@ -20,7 +20,7 @@ import jp.easyrecrui.utils.CodeType;
 import jp.easyrecrui.utils.Md5Code;
 import jp.easyrecrui.utils.UrlPath;
 
-@RestController
+@Controller
 public class ApplyUserController {
 	@Autowired
 	ApplyUserService applyUserService;
@@ -51,11 +51,25 @@ public class ApplyUserController {
 			return mav;
 		} else {
 			// ログイン成功
-			session.setAttribute("loginUser", userId);
+			ApplyUser applyUser = applyUserService.getUserData(userId);
+			session.setAttribute("loginUser", applyUser);
 			mav.setViewName("main/main");
 			return mav;
 		}
 
+	}
+
+	/**
+	 *	ログアウトする
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(UrlPath.LOGOUT)
+	public String logout(HttpSession session) {
+
+		session.removeAttribute("loginUser");
+
+		return "redirect:" + UrlPath.MAIN_VIEW;
 	}
 
 	/**
@@ -151,11 +165,11 @@ public class ApplyUserController {
 	//	return "login/mypage";
 	//	}
 	@RequestMapping(UrlPath.APPLY_USER_INFO)
-	public ModelAndView list(Model model,HttpSession hs) {
-		ModelAndView mav =new ModelAndView("applyUser/applyUserInfo");
-		String userLogin = (String)hs.getAttribute("loginUser");
-		ApplyUser applyUser = applyUserService.getUserData(userLogin);
-		model.addAttribute("applyUserInfo",applyUser);
+	public ModelAndView list(Model model, HttpSession hs) {
+		ModelAndView mav = new ModelAndView("MAIN/applyUserInfo");
+		ApplyUser applyUser = (ApplyUser) hs.getAttribute("loginUser");
+		System.out.println(applyUser.getUserId());
+		model.addAttribute("applyUserInfo", applyUser);
 		return mav;
 	}
 }

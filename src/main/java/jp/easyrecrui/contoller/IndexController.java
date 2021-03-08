@@ -25,9 +25,9 @@ public class IndexController {
 		Object userLogin = session.getAttribute("loginUser");
 		ModelAndView mav = new ModelAndView("login/myPage");// テンプレートHTML指定
 		if(userLogin == null) {
-
+			mav.setViewName("login/login");
 		}else {
-
+			mav.addObject("applyUserInfo", userLogin);
 		}
 		return mav;
 
@@ -42,7 +42,7 @@ public class IndexController {
 
 	@RequestMapping(UrlPath.LOGIN)
 	public ModelAndView login(Model model) {
-		ModelAndView mav = new ModelAndView("login/login");
+		ModelAndView mav = new ModelAndView("login/login");// テンプレートHTML指定
 		return mav;
 	}
 
@@ -51,5 +51,7 @@ public class IndexController {
 		ModelAndView mav = new ModelAndView("login/regist");
 		return mav;
 	}
+
+
 
 }
