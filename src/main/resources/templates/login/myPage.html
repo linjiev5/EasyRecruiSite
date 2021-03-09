@@ -32,7 +32,7 @@
 		<div th:insert="~{main/part::top}"></div>
 		<!--ライン-->
 		<hr color="#87ceeb" size="3" />
-		<!-- /. NAV SIDE  -->
+		<!-- /. 左側  -->
 		<div th:insert="~{main/part::sidebar}"></div>
 		<!-- 真ん中の部分 -->
 		<div id="page-wrapper">
@@ -43,8 +43,8 @@
 					<div class="col-md-12">
 						<h1 class="page-header" th:text="${session?.loginUser?.name}">
 							Dashboard</h1>
-						<small>個人情報</small><a th:href="@{}">編集</a>
-
+						<small>個人情報</small><a class="btn btn-primary btn-sm" th:href="@{/updateAppkyUser}"+${applyUserInfo}>編集</a>
+							<a class="btn btn-danger btn-sm" th:href=@{/withdrawal}>退会</a>
 					</div>
 				</div>
 

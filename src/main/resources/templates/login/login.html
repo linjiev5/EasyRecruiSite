@@ -26,12 +26,12 @@
 				<p class="margint10 fncolorhongse" th:text="${message}"
 					th:if="${not #strings.isEmpty(message)}"></p>
 				<div class="form-group">
-					<label for="email">ユーザ:</label> <input type="text"
+					<label for="email">ユーザ:</label><br/> <input type="text"
 						class="form-control" id="user" name="userId"
 						placeholder="ユーザ名を入力してください" required="required">
 				</div>
 				<div class="form-group">
-					<label for="pwd">パスワード:</label> <input type="password"
+					<label for="pwd">パスワード:</label><br/> <input type="password"
 						class="form-control" id="pwd" name="userPwd"
 						placeholder="パスワードを入力してください" required="required">
 				</div>
@@ -41,6 +41,8 @@
 		</div>
 		<div class="div_right">
 			<a th:href="@{/regist}">登録</a>
+
+		</div>
 		</div>
 
 		<div class="w100per bghui  fl " style="height: 190px">

@@ -1003,3 +1003,10 @@ a:link, a:visited, a:hover {
 #div_right {
 	float: right;
 }
+
+.regist {
+
+    resize:both;
+    overflow:auto;
+}
+}

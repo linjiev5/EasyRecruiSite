@@ -164,12 +164,92 @@ public class ApplyUserController {
 	//
 	//	return "login/mypage";
 	//	}
-	@RequestMapping(UrlPath.APPLY_USER_INFO)
+	/**
+	 *
+	 * @param model
+	 * @param hs
+	 * @return
+	 */
+	@RequestMapping(UrlPath.UPDATE_APPLY_USER)
 	public ModelAndView list(Model model, HttpSession hs) {
-		ModelAndView mav = new ModelAndView("MAIN/applyUserInfo");
+		ModelAndView mav = new ModelAndView("applyUser/update");
 		ApplyUser applyUser = (ApplyUser) hs.getAttribute("loginUser");
-		System.out.println(applyUser.getUserId());
+		//System.out.println(applyUser.getUserId());
 		model.addAttribute("applyUserInfo", applyUser);
 		return mav;
 	}
+
+	/**
+	 *	個人情報を更新する場合
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(UrlPath.APPLY_USER_RESUME)
+	public String resume(Model model, HttpSession session) {
+		model.addAttribute("resume", session);
+		return "applyUser/resume";
+	}
+
+	@RequestMapping("/saveApplyUserInfo")
+	public String updateApplyUserInfo(@RequestParam(name = "userId") String userId,
+			String userPwd, @RequestParam(name = "name") String name,
+			@RequestParam(name = "mail") String mail, @RequestParam(name = "tel") String tel,
+			@RequestParam(name = "sex") int sex, @RequestParam(name = "adress") String adress,
+			@RequestParam(name = "birth") Date birth, Map<String, Object> message) {
+		// 空欄あるかどうかを確認
+		if ((sex == 1 || sex == 0)
+				&& !userId.toString().equals("") && !name.toString().equals("")
+				&& !mail.toString().equals("") && !tel.toString().equals("") && !adress.toString().equals("")
+				&& !birth.toString().equals("")) {
+			int result = applyUserService.fineUserByUserId(userId);
+			if (result == CodeType.USER_EXIST.getCode()) {
+				ApplyUser applyUser = new ApplyUser();
+
+				applyUser.setAdress(adress);
+				applyUser.setMail(mail);
+				applyUser.setName(name);
+				applyUser.setPassword(userPwd);
+				applyUser.setSex(sex);
+				applyUser.setTel(tel);
+				applyUser.setUserId(userId);
+				applyUser.setBirth(birth);
+				applyUserService.saveAppluUser(applyUser);
+				return "redirect:"+UrlPath.MYPAGE_VIEW;
+			} else {
+				// それぞれ未入力の項目の提示
+				if (userId.toString().trim().equals("")) {
+					message.put("message", "ユーザ名を入力してください");
+				} else if (name.toString().trim().equals("")) {
+					message.put("message", "名前を入力してください");
+				} else if (mail.toString().trim().equals("")) {
+					message.put("message", "メールを入力してください");
+				} else if (tel.toString().trim().equals("")) {
+					message.put("message", "電話番号を入力してください");
+				} else if (sex != 1 || sex != 0) {
+					message.put("message", "性別を選択してください");
+				} else if (adress.toString().trim().equals("")) {
+					message.put("message", "住所を入力してください");
+				} else if (birth.toString().trim().equals("")) {
+					message.put("message", "生年月日を選択してください");
+				} else {
+				}
+
+			}
+			return null;
+		}
+		return null;
+	}
+	@RequestMapping("/withdrawal")// 退会
+	public String withdrawal(HttpSession session) {
+		ApplyUser applyUser = (ApplyUser) session.getAttribute("loginUser");
+		int result = applyUserService.fineUserByUserId(applyUser.getUserId());
+		if(result == CodeType.USER_EXIST.getCode()) {
+			applyUserService.withdrawal(applyUser.getUserId());
+		}else {
+		}
+		session.removeAttribute("loginUser");
+		return "redirect:"+UrlPath.MAIN_VIEW;
+	}
+
 }
