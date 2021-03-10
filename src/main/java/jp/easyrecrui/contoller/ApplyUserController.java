@@ -234,7 +234,6 @@ public class ApplyUserController {
 					message.put("message", "生年月日を選択してください");
 				} else {
 				}
-
 			}
 			return null;
 		}
